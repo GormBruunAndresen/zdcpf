@@ -79,12 +79,13 @@ class node:
 
 
 class Nodes:
-    def __init__(self,setupnodes='setupnodes.txt',files=['N.npy','S.npy','DKW.npy','DKE.npy','DN.npy']):
+    def __init__(self,setupnodes='setupnodes.txt',files=['data/N.npy','data/S.npy','data/DKW.npy','data/DKE.npy','data/DN.npy']):
         setup=np.genfromtxt(setupnodes,delimiter=',')
         self.cache=[]
         for i in range(len(files)):
             n=node(files[i],i,setup,files[i])
             self.cache=np.append(self.cache,n)
+        F=np.zeros((size(files),self.cache[0].nhours))
 
     def __getitem__(self,x):
         return self.cache[x]
@@ -113,8 +114,8 @@ class Nodes:
 
 
 
-    def add_colored_import(self, F, node_id=None, incidence_matrix='incidence.txt', lapse=np.size(F,1)):
-	
+    def add_colored_import(self, F, node_id=None, incidence_matrix='incidence.txt', lapse=None):
+	"""Type N.add_colored_stuff(F,lapse=x)"""
         if lapse==None:
             lapse=self.cache[0].mismatch.shape[0]
     	
@@ -269,7 +270,9 @@ def runtimeseries(N,F,P,q,G,h,A,coop,lapse):
     print "Calculation took ",round(end-start)," seconds."
     return N,F
 
-def zdcpf(N,incidence='incidence.txt',constraints='constraints.txt',setupfile='setupnodes.txt',coop=0,copper=0,lapse=70128):
+def zdcpf(N,incidence='incidence.txt',constraints='constraints.txt',setupfile='setupnodes.txt',coop=0,copper=0,lapse=None):
+    if lapse == None:
+        lapse=N[0].nhours
     P,q,G,h,A = generatemat(incidence,constraints,copper)
     Nnodes=np.size(np.genfromtxt(incidence,delimiter=','),0)-1
     Nlinks=np.size(np.genfromtxt(incidence,delimiter=','),1)-1
