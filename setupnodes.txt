@@ -1,0 +1,20 @@
+# In this file, one indicates the levels of Gamma, Alpha, and Beta for each node,
+# where the wind penetration can be found as Gamma*alpha, etc
+# 
+# This will eventually be replaced by a sweep function.
+#
+# The columns correspond to the following variables
+#                  Gamma       Alpha-w       
+# Norway
+                    1.0       ,   0.8    
+# Sweden
+                    1.0       ,   0.8    
+# DKWest
+                    1.0       ,   0.5    
+# DKEast
+                    1.0     ,   0.5     
+# Germany(N)
+                    1.0     ,   0.5    
+# The last line selects what kind of scenario you wish to model
+#  Cooperative Balancing on, Not Used, Not Used
+                    1       ,   0      

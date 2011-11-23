@@ -1,0 +1,19 @@
+# In this file, one indicates the existance of links between nodes, 
+# corresponding to the incidence matrix K . 
+# (This is 'A' in the quadratic programming formulation, in Ax=b)
+#
+# So far, I've built a five by five matrix. Add an extra column for each new 
+# link and a row must be added for each new node. 
+# Write a (1) to signal where the edge comes from and a (-1) to signal where the edge ends.
+# Use a coma as a delimiter. Also, don't touch the dummy node or link!
+# The current order of the nodes (rows) is as follows
+# Dummy Node, Norway, Sweden, DKW, DKE, Germany
+#
+# The columns correspond to the following links
+#       No->Se    No->DKW    Se->DKW    Se->DKE    DKW->DKE    DKW->De    DKE->De     S->De
+ 1.,      0     ,    0     ,    0     ,    0     ,     0     ,     0    ,     0     ,   0
+-1.,      1.    ,    1.    ,    0     ,    0     ,     0     ,     0    ,     0     ,   0
+ 0,      -1.    ,    0     ,    1.    ,    1.    ,     0     ,     0    ,     0     ,   1.
+ 0,       0     ,   -1.    ,   -1.    ,    0     ,     1.    ,     1.   ,     0     ,   0
+ 0,       0     ,    0     ,    0     ,   -1.    ,    -1.    ,     0    ,     1.    ,   0
+ 0,       0     ,    0     ,    0     ,    0     ,     0     ,    -1.   ,    -1.    ,  -1.

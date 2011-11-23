@@ -1,0 +1,45 @@
+# In this file, one indicates the constraints in the links, in the same order as in 
+# the file incidence.txtng to the incidence matrix K. Two values are given for each link, 
+# one for each direction, expressed in MW. 
+# (This is 'h' in the quadratic programming formulation, in Gx<=h)
+#
+# In theory, constraints on the balancing power for each country could be included here, but this 
+# is yet untested.
+# Again, don't touch the dummy link!
+# 
+#  Dummy Link
+0.001
+0.001
+#
+#  No->Se
+3593
+#  No<-Se
+3895
+#  No->DKW
+950
+#  No<-DKW    
+950
+#  Se->DKW 
+680
+#  Se<-DKW 
+740
+#  Se->DKE  
+1300
+#  Se<-DKE  
+1700
+#  DKW->DKE 
+600
+#  DKW<-DKE
+600
+#  DKW->De 
+1500
+#  DKW<-De
+950
+#  DKE->De
+585
+#  DKE<-De
+600
+# Se -> De
+610
+# De <- Se
+600
